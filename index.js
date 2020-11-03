@@ -70,16 +70,27 @@ function userInputs() {
     message:"Provide instructions and examples for use. Include screenshots as needed.",
 },
 {
-    type: "input",
-    name: "contributing",
-    message: "List your collaborators, if any, with links to their GitHub profiles.",
-},
-{
     type: "list",
     name: "License",
     message: "Choose a license.",
     choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
 },
+{
+    type: "input",
+    name: "contributing",
+    message: "List your collaborators, if any, with links to their GitHub profiles.",
+},
+{
+    type: "input",
+    name: "tests",
+    message: "What kind of tests were ran on this?",
+},
+{
+    type: "input",
+    name: "questions",
+    message: "A space to let users contact you with questions on your repo?",
+},
+
 
 
     ])

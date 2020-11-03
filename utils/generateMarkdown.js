@@ -19,16 +19,23 @@ function generateMarkdown(data) {
 
   ## Usage
 
-
   ${data.Usage}
+
+  ## License
+
+  ${data.License}
 
   ## Contributing
 
   ${data.contributing}
 
-  ## License
+  ## Tests
 
-  ${data.License}
+  ${data.tests}
+
+  ## Questions
+
+  ${data.questions}
 
 
 `;
