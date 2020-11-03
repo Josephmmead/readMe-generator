@@ -1,10 +1,20 @@
 const inquirer = require("inquirer")
 const fs = require("fs")
-const api = require('./utils/api.js');
+const axios = require("axios")
 const generateMarkdown = require("./utils/generateMarkdown")
 
 
-
+    function getUser(userName) {
+        return axios
+            .get(
+                `https://api.github.com/users/${userName}`
+            )
+            
+            .catch(err => {
+                console.log(`User not found`);
+                process.exit(1);
+            });
+    }
 
 // array of questions for user
 function userInputs() {
@@ -12,7 +22,7 @@ function userInputs() {
     .prompt([
 {
     type: "input",
-    name: "github",
+    name: "userName",
     message: "What is your Github username?",
     validate: function (input){
         if(input.length < 1){
@@ -83,9 +93,10 @@ function userInputs() {
 
     ])
     .then((inquirerResponses) => {
-        api(inquirerResponses.userName)
+
+        console.log(inquirerResponses)
+        getUser(inquirerResponses.userName)
             .then((githubResponse) => {
-                // Add user avatar to project details
                 inquirerResponses.avatarURL = githubResponse.data.avatar_url
                 // Parse the README details to create markdown version
                 let markdownReadme = generateMarkdown(inquirerResponses);
