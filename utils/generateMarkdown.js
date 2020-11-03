@@ -6,7 +6,7 @@
 // function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.projectName}
-  ${data.github}
+  ${data.userName}
 
 
   ## Description

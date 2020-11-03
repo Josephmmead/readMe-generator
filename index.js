@@ -4,18 +4,21 @@ const axios = require("axios")
 const generateMarkdown = require("./utils/generateMarkdown")
 
 
-    function getUser(userName) {
+    function getUser(inquirerResponses) {
         return axios
             .get(
-                `https://api.github.com/users/${userName}`
-            )
+                `https://api.github.com/users/${inquirerResponses.userName}`)
             
+                
             .catch(err => {
                 console.log(`User not found`);
                 process.exit(1);
             });
+
+            
     }
 
+    
 // array of questions for user
 function userInputs() {
     inquirer
@@ -81,11 +84,9 @@ function userInputs() {
 
     ])
     .then((inquirerResponses) => {
-
-        console.log(inquirerResponses)
         getUser(inquirerResponses.userName)
-            .then((githubResponse) => {
-                inquirerResponses.avatarURL = githubResponse.data.avatar_url
+            .then((res) => {
+                inquirerResponses.avatarURL = res.data.avatar_url
                 // Parse the README details to create markdown version
                 let markdownReadme = generateMarkdown(inquirerResponses);
                 // Parse the markdown README version to write it to file
@@ -102,7 +103,7 @@ function writeToFile(file, data) {
         if (err) {
             return console.log(err);
         }
-        console.log("Success!");
+        console.log("Generating your README next...");
     })
 }
 
