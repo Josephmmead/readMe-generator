@@ -46,18 +46,6 @@ function userInputs() {
 },
 {
     type: "input",
-    name: "projectName",
-    message: "What is the title of your project?",
-    validate: function (input){
-        if(input.length < 1){
-            return console.log("You must input a valid title.")
-    } else {
-        return true
-        }
-    }
-},
-{
-    type: "input",
     name: "description",
     massage: "Please write a description of your project.",
     validate: function (input){

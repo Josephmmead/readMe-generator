@@ -8,9 +8,6 @@ function generateMarkdown(data) {
   return `# ${data.projectName}
   ${data.github}
 
-  ## Project Name
-
-  ${data.projectName}
 
   ## Description
 
@@ -21,6 +18,7 @@ function generateMarkdown(data) {
   ${data.Installation}
 
   ## Usage
+
 
   ${data.Usage}
 

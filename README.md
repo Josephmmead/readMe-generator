@@ -1,9 +1,6 @@
 # Good_readMe
   undefined
 
-  ## Project Name
-
-  Good_readMe
 
   ## Description
 
